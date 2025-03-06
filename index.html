@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 INPUT 1 OUTPUT TEMPLATE</title>
+    <style>
+
+        /* STYLE FOR THE INPUT FIELD */
+        body{
+            background-color: black;
+            /* display: flex;
+            flex-direction: column;
+            align-items: center; */
+        }
+
+        .title{
+            color: white;
+            margin: 20px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 60px;
+        }
+
+        #charInput {
+            color: blue;
+            border: solid 4px blue;
+            border-radius: 25px;
+            margin: 10px;
+            padding: 10px;
+            padding-left: 20px;
+            font-size: 20px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+            color: blue;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 20px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: none;
+            flex: 1;
+            border: solid blue;
+            border-radius: 20px;
+            transition: all 200ms;
+        }
+
+        #submitButton:hover{
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: solid black 5px;
+            transform: translate(8px, -8px);
+            box-shadow: -5px 5px blue;
+            transition: all 200ms;
+        }
+
+        #submitButton:active{
+            background-color: black;
+            color: white;
+            border: solid white 5px;
+        }
+
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+            margin: 20px;
+            max-width: 50%;
+            border: solid white 5px;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Learn the Alphabet with Bo Burnham!!</h1>
+    
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput" maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <button onclick="displayImage()" id="submitButton">Show Image</button>
+
+    <!-- IMAGE TO DISPLAY -->
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+
+    <!-- Image Display Script Below -->
+    <script>
+        // Array of images
+        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
+        const images = [
+            "images/A.png", //A
+            "images/B.png", //B
+            "images/C.png", //C
+            "images/D.png", //D
+            "images/E.png", //E
+            "images/F.png", //F
+            "images/G.png", //G
+            "images/H.png", //H
+            "images/I.png", //I
+            "images/J.png", //J
+            "images/K.png", //K
+            "images/L.png", //L
+            "images/M.png", //M
+            "images/N.png", //N
+            "images/O.png", //O
+            "images/P.png", //P
+            "images/Q.png", //Q
+            "images/R.png", //R
+            "images/S.png", //S
+            "images/T.png", //T
+            "images/U.png", //U
+            "images/V.png", //V
+            "images/W.png", //W
+            "images/X.png", //X
+            "images/Y.png", //Y
+            "images/Z.png"  //Z
+        ];
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+            
+            // Assign an image based on character (A-Z)
+            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
+            if (index >= 0 && index < images.length) {
+                imgElement.src = images[index];
+                imgElement.style.display = "block";
+            } else {
+                /* 
+                alert("Please enter a letter between A and Z.");
+                imgElement.style.display = "none";
+                */
+
+                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
+                imgElement.src = "https://i.ytimg.com/vi/lFjWA5w74nY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCm9vDmKgIWU89Z6usadvMrRyotRA"
+                imgElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
